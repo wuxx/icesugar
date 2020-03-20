@@ -1,0 +1,9 @@
+image: gitlab-registry.grahamedgecombe.com/gpe/icestorm-docker:latest
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - make YS_ICE40=/usr/share/yosys/ice40/cells_sim.v syntax time stat

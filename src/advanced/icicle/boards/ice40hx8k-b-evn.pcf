@@ -1,0 +1,15 @@
+set_io clk       J3
+set_io flash_clk R11
+set_io flash_csn R12
+set_io flash_io0 P12
+set_io flash_io1 P11
+set_io leds[0]   C3
+set_io leds[1]   B3
+set_io leds[2]   C4
+set_io leds[3]   C5
+set_io leds[4]   A1
+set_io leds[5]   A2
+set_io leds[6]   B4
+set_io leds[7]   B5
+set_io uart_rx   B10
+set_io uart_tx   B12

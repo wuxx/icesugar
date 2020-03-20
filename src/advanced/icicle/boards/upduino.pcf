@@ -1,0 +1,16 @@
+# using the internal 48MHz hifreq osc
+#set_io clk       35
+set_io flash_clk 15
+set_io flash_csn 16
+set_io flash_io0 17
+set_io flash_io1 14
+set_io leds[0]   38
+set_io leds[1]   42
+set_io leds[2]   36
+set_io leds[3]   43
+set_io leds[4]   34
+set_io leds[5]   37
+set_io leds[6]   31
+set_io leds[7]   32
+set_io uart_rx   12
+set_io uart_tx   21

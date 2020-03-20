@@ -1,0 +1,21 @@
+set_io   clk12              35
+set_io   vga_h_sync             34
+set_io   vga_v_sync             31
+set_io   vga_R       45
+set_io   vga_R1      43
+set_io   vga_R2      38
+set_io   vga_R3      36
+
+set_io   vga_G      32
+set_io   vga_G1     28
+set_io   vga_G2     26
+set_io   vga_G3     23
+
+set_io   vga_B       46
+set_io   vga_B1      44
+set_io   vga_B2      42
+set_io   vga_B3      37
+
+set_io   quadA     27
+set_io   quadB     25
+

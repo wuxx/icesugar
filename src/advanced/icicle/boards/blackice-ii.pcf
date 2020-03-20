@@ -1,0 +1,21 @@
+set_io clk       129
+
+set_io leds[0]   70
+set_io leds[1]   68
+set_io leds[2]   67
+set_io leds[3]   71
+
+# Connected to regular GPIOs, not LEDs
+set_io leds[4]   20
+set_io leds[5]   19
+set_io leds[6]   16
+set_io leds[7]   15
+
+set_io uart_rx   88
+set_io uart_tx   85
+
+# set flash_* sigs to unused pmod 2 pins
+# set_io flash_clk 95
+# set_io flash_csn 93
+# set_io flash_io0 90
+# set_io flash_io1 87

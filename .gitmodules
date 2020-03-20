@@ -1,0 +1,9 @@
+[submodule "src/advanced/up5k_6502"]
+	path = src/advanced/up5k_6502
+	url = https://github.com/wuxx/up5k_6502.git
+[submodule "src/advanced/litex-buildenv"]
+	path = src/advanced/litex-buildenv
+	url = https://github.com/wuxx/litex-buildenv.git
+[submodule "src/advanced/usb"]
+	path = src/advanced/usb
+	url = https://github.com/wuxx/up5k.git
