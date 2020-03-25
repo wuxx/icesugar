@@ -58,8 +58,8 @@ gcc工具链安装请参考 [riscv-gnu-toolchain](https://pingu98.wordpress.com/
 - [开源FPGA开发板-开发环境搭建](https://www.bilibili.com/video/av85146557?from=search&seid=17750023774521991972)   
 - [开源FPGA开发板-RISC-V SoC烧录演示](https://www.bilibili.com/video/av90891200?from=search&seid=17750023774521991972)   
 # FPGA教程
-强烈推荐学习此教程，`src/basic/open-fpga-verilog-tutorial`目录中有对应的例程
-[open-fpga-verilog-tutorial](https://github.com/Obijuan/open-fpga-verilog-tutorial/wiki/Home_EN)
+强烈推荐学习此教程，[open-fpga-verilog-tutorial](https://github.com/Obijuan/open-fpga-verilog-tutorial/wiki/Home_EN) `src/basic/open-fpga-verilog-tutorial`目录中有对应的例程
+
 
 # 参考
 ### toolchain
