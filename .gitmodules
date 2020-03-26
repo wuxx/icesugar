@@ -7,3 +7,6 @@
 [submodule "src/advanced/usb"]
 	path = src/advanced/usb
 	url = https://github.com/wuxx/up5k.git
+[submodule "src/advanced/up5k-demos"]
+	path = src/advanced/up5k-demos
+	url = https://github.com/wuxx/up5k-demos.git
