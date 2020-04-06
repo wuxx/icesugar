@@ -53,6 +53,9 @@ iCESugar实现了一个板载的调试器iCELink，您可仅用一根USB线便�
 推荐使用虚拟机镜像进行开发测试，简单方便。  
 FPGA工具链安装请参考[icestorm](http://www.clifford.at/icestorm/)  
 gcc工具链安装请参考 [riscv-gnu-toolchain](https://pingu98.wordpress.com/2019/04/08/how-to-build-your-own-cpu-from-scratch-inside-an-fpga/)
+`icesprog`是为iCESugar开发的命令行烧写工具，仓库中已经提供，依赖libusb和hidapi，若自行搭建环境需要安装依赖的库  
+`$sudo apt-get install libhidapi-dev`  
+`$sudo apt-get install libusb-1.0-0-dev`  
 # 视频教程
 - [开源FPGA开发板-硬件介绍](https://www.bilibili.com/video/av85029350?from=search&seid=17750023774521991972)  
 - [开源FPGA开发板-开发环境搭建](https://www.bilibili.com/video/av85146557?from=search&seid=17750023774521991972)   
