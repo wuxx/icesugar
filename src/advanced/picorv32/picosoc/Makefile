@@ -123,6 +123,10 @@ icesugar.bin: icesugar.asc
 ICELINK_DIR=$(shell df | grep iCELink | awk '{print $$6}')
 ${warning iCELink path: $(ICELINK_DIR)}
 
+icessim: 
+	@nextpnr-ice40 --freq 13 --up5k --pcf icesugar.pcf --json icesugar.json --package sg48 --gui
+
+
 icesprog: icesugar.bin icesugar_fw.bin
 	@echo  "icesprog"
 	icesprog icesugar.bin
