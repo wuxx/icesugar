@@ -1,0 +1,7 @@
+[0m[[0m[0mdebug[0m] [0m[0m"not up to date. inChanged = true, force = false[0m
+[0m[[0m[0mdebug[0m] [0m[0mUpdating ProjectRef(uri("file:/home/ubuntu/oss/icesugar/src/SpinalHDL/leds/project/"), "leds-build")...[0m
+[0m[[0m[0minfo[0m] [0m[0mUpdating [0m
+[0m[[0m[0minfo[0m] [0m[0mResolved  dependencies[0m
+[0m[[0m[0minfo[0m] [0m[0mFetching artifacts of [0m
+[0m[[0m[0minfo[0m] [0m[0mFetched artifacts of [0m
+[0m[[0m[0mdebug[0m] [0m[0mDone updating ProjectRef(uri("file:/home/ubuntu/oss/icesugar/src/SpinalHDL/leds/project/"), "leds-build")[0m

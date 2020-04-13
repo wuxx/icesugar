@@ -70,5 +70,7 @@ http://www.clifford.at/icestorm/
 ### examples
 https://github.com/damdoy/ice40_ultraplus_examples  
 https://github.com/icebreaker-fpga/icebreaker-examples
+### SpinalHDL 教程
+https://spinalhdl.github.io/SpinalDoc-RTD/SpinalHDL/Getting%20Started/index.html
 ### 开源FPGA单板iCESugar介绍
 https://www.muselab-tech.com/wan-quan-shi-yong-kai-yuan-gong-ju-lian-de-fpgadan-ban/

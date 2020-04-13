@@ -1,0 +1,7 @@
+# For the iCE40 UltraPlus (iCE40UP5K-QFN) Breakout Board
+
+set_io io_led[0] 39
+set_io io_led[1] 40
+set_io io_led[2] 41
+set_io clk 35
+set_io reset 18
