@@ -10,3 +10,6 @@
 [submodule "src/advanced/up5k-demos"]
 	path = src/advanced/up5k-demos
 	url = https://github.com/wuxx/up5k-demos.git
+[submodule "src/advanced/VexRiscv"]
+	path = src/advanced/VexRiscv
+	url = https://github.com/wuxx/VexRiscv.git

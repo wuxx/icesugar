@@ -4,6 +4,12 @@ https://github.com/cliffordwolf/picorv32.git
 `picocom -b 115200 /dev/ttyACM0`
 `make icesprog`
 
+# VexRiscv
+https://github.com/wuxx/VexRiscv.git 
+## build & run
+`picocom -b 115200 /dev/ttyACM0`
+`cd scripts/Murax/iCESugar && make prog`
+
 # icicle    (commit-id c653af1d)
 https://github.com/grahamedgecombe/icicle.git
 ## build & run
