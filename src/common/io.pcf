@@ -48,6 +48,12 @@ set_io P3_10    26
 set_io P3_11    28
 set_io P3_12    32
 
+# PMOD 4
+set_io P4_1     21
+set_io P4_2     20
+set_io P4_3     19
+set_io P4_4     18
+
 #spi
 set_io SPI_SS   16
 set_io SPI_SCK  15

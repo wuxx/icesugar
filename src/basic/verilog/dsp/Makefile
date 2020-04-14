@@ -1,5 +1,5 @@
 filename = top
-pcf_file = ../../common/io.pcf
+pcf_file = ../../../common/io.pcf
 
 build:
 	yosys -p "synth_ice40 -blif $(filename).blif" $(filename).v
