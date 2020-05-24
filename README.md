@@ -11,6 +11,7 @@ iCESugar
 * [开发环境搭建](#开发环境搭建)
 * [视频教程](#视频教程)
 * [FPGA教程](#fpga教程)
+* [产品链接](#产品链接)
 * [参考](#参考)
 
 
@@ -65,6 +66,8 @@ gcc工具链安装请参考 [riscv-gnu-toolchain](https://pingu98.wordpress.com/
 # FPGA教程
 强烈推荐学习此教程，[open-fpga-verilog-tutorial](https://github.com/Obijuan/open-fpga-verilog-tutorial/wiki/Home_EN) `src/basic/open-fpga-verilog-tutorial`目录中有对应的例程
 
+# 产品链接
+[iCESugar FPGA Board](https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-21349689053.18.305e20f8cSEvqA&id=614093598737)
 
 # 参考
 ### toolchain
