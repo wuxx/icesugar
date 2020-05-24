@@ -1,5 +1,7 @@
 iCESugar
 -----------
+[中文](./README.md) [English](./README_en.md)
+
 * [iCESugar介绍](#iCESugar介绍) 
 * [芯片规格](#芯片规格)
 * [硬件说明](#硬件说明)
