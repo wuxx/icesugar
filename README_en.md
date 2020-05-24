@@ -32,7 +32,7 @@ the on board debugger iCELink (base on ARM Mbed DAPLink) support drag-and-drop p
 iCESugar has a on board debugger named iCELink (base on STM32F1)，you can only use one USB wire to program the FPGA and debug, here is detail:   
 1. drag-and-drop program, just drop the bitstream into the virtual USB DISK iCELink, then wait a few second, the iCELink firmware will do the total program work
 2. USB CDC serial port, it can use to communicate with FPGA
-3. support JTAG, you can use it to debugger the SoC run on FPGA
+3. support JTAG, you can use it to debug the SoC run on FPGA
 4. the MCO can provide 12Mhz clock for FPGA as extern clock.
 
 # virtual-machine-image
@@ -40,7 +40,10 @@ link：https://pan.baidu.com/s/1qVSdwM7DnFbaS0xdqsPNrA
 verify code：6gn3  
 `user: ubuntu`  
 `passwd: ubuntu`  
-the env include yosys, nextpnr, icestorm, gcc already built-in
+or
+https://mega.nz/file/uvJTWKrK#1bBgBkJPZrszwHQSTHHL-RLjxGIru0Qv0qUgmULZZVs
+
+the env include yosys, nextpnr, icestorm, gcc, sbt.
 
 # How-to-setup-env
 recommand use the virtual machine, it simple and convenient  
