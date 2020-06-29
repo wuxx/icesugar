@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Tue Sep  4 15:11:19 2018
+[*]
+[dumpfile] "/home/matt/work/fpga/ws2812/ws2812/engine_0/trace.vcd"
+[dumpfile_mtime] "Tue Sep  4 15:10:51 2018"
+[dumpfile_size] 1110
+[savefile] "/home/matt/work/fpga/ws2812/hit_proc_formal.gtkw"
+[timestart] 0
+[size] 1715 892
+[pos] 946 119
+*-4.296556 290 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 253
+[signals_width] 385
+[sst_expanded] 1
+[sst_vpaned_height] 260
+@28
+ws2812.clk
+ws2812.reset
+@24
+ws2812.bit_counter[9:0]
+ws2812.rgb_counter[4:0]
+ws2812.led_counter[3:0]
+@28
+ws2812.data
+ws2812.state[1:0]
+@22
+ws2812.led_num[7:0]
+@28
+ws2812.write
+@23
+ws2812.rgb_data[23:0]
+@22
+ws2812.led_reg<0>[23:0]
+[pattern_trace] 1
+[pattern_trace] 0

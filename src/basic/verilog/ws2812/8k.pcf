@@ -1,0 +1,22 @@
+###################################
+# Physical constraints file (pcf) #
+# for iCE40HX8K-CT256             #
+###################################
+
+
+### Clock
+set_io clk J3
+
+### LEDs
+set_io --warn-no-port LED[0] B5
+set_io --warn-no-port LED[1] B4
+set_io --warn-no-port LED[2] A2
+set_io --warn-no-port LED[3] A1
+set_io --warn-no-port LED[4] C5
+set_io --warn-no-port LED[5] C4
+set_io --warn-no-port LED[6] B3
+set_io --warn-no-port LED[7] C3
+
+set_io --warn-no-port ws_data C16
+
+

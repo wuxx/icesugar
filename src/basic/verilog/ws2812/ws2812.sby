@@ -1,0 +1,13 @@
+[options]
+mode prove
+depth 30
+
+[engines]
+smtbmc
+
+[script]
+read -formal ws2812.v
+prep -top ws2812
+
+[files]
+ws2812.v
