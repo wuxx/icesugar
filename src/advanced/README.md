@@ -38,3 +38,9 @@ https://github.com/emeb/up5k_6502.git
 https://github.com/wuxx/up5k.git 
 ## build & run
 `cd usb/usb && ./build.sh && icesprog serial-demo.bin`
+
+# iceZ0mb1e
+https://github.com/wuxx/iceZ0mb1e.git
+## build & run
+`picocom -b 9600 /dev/ttyACM0`
+`make firmware && make fpga && make flash`

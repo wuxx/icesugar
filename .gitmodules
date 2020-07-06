@@ -13,3 +13,6 @@
 [submodule "src/advanced/VexRiscv"]
 	path = src/advanced/VexRiscv
 	url = https://github.com/wuxx/VexRiscv.git
+[submodule "src/advanced/iceZ0mb1e"]
+	path = src/advanced/iceZ0mb1e
+	url = https://github.com/wuxx/iceZ0mb1e.git
