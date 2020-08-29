@@ -168,7 +168,7 @@ module hard_led (
 
         .PWMOUT0                (red_pwm),
         .PWMOUT1                (green_pwm),
-        .PWMOUT2	            (blue_pwm),
+        .PWMOUT2                (blue_pwm),
     );
     
     // RGB LED driver
