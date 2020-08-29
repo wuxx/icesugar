@@ -50,16 +50,23 @@ the env include yosys, nextpnr, icestorm, gcc, sbt.
 recommand use the virtual machine, it simple and convenient  
 FPGA toolchain reference [icestorm](http://www.clifford.at/icestorm/)  
 gcc toolchain reference [riscv-gnu-toolchain](https://pingu98.wordpress.com/2019/04/08/how-to-build-your-own-cpu-from-scratch-inside-an-fpga/)  
+Alternatively, you can download the pre-built toolchain provided by xPack or SiFive
++ https://xpack.github.io/riscv-none-embed-gcc/install/
++ https://www.sifive.com/software
 `icesprog` is command tool for iCESugar program，it depend libusb and hidapi  
 `$sudo apt-get install libhidapi-dev`  
 `$sudo apt-get install libusb-1.0-0-dev`  
 
 # How-to-buy
 currently we only has the board on taobao, [iCESugar FPGA Board](https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-21349689053.18.305e20f8cSEvqA&id=614093598737), if you can't buy it from taobao, maybe you can buy it on aliexpress, just search "icesugar fpga" (not official, somebody copy the link and acts as distributor)
-# reference
-### toolchain
+
+# Reference
+### RTL toolchain
 http://www.clifford.at/icestorm/
-### examples
+### Firmware toolchain
+https://xpack.github.io/riscv-none-embed-gcc/install/
+https://www.sifive.com/software
+### Examples
 https://github.com/damdoy/ice40_ultraplus_examples  
 https://github.com/icebreaker-fpga/icebreaker-examples
 ### SpinalHDL
