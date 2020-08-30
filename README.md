@@ -56,6 +56,9 @@ iCESugar实现了一个板载的调试器iCELink，您可仅用一根USB线便�
 推荐使用虚拟机镜像进行开发测试，简单方便。  
 FPGA工具链安装请参考[icestorm](http://www.clifford.at/icestorm/)  
 gcc工具链安装请参考 [riscv-gnu-toolchain](https://pingu98.wordpress.com/2019/04/08/how-to-build-your-own-cpu-from-scratch-inside-an-fpga/)  
+也可直接下载xPack或者SiFive提供的预编译工具链
++ https://xpack.github.io/riscv-none-embed-gcc/install/
++ https://www.sifive.com/software
 `icesprog`是为iCESugar开发的命令行烧写工具，仓库中已经提供，依赖libusb和hidapi，若自行搭建环境需要安装依赖的库  
 `$sudo apt-get install libhidapi-dev`  
 `$sudo apt-get install libusb-1.0-0-dev`  
@@ -70,9 +73,12 @@ gcc工具链安装请参考 [riscv-gnu-toolchain](https://pingu98.wordpress.com/
 [iCESugar FPGA Board](https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-21349689053.18.305e20f8cSEvqA&id=614093598737)
 
 # 参考
-### toolchain
+### RTL toolchain
 http://www.clifford.at/icestorm/
-### examples
+### Firmware toolchain
+https://xpack.github.io/riscv-none-embed-gcc/install/
+https://www.sifive.com/software
+### Examples
 https://github.com/damdoy/ice40_ultraplus_examples  
 https://github.com/icebreaker-fpga/icebreaker-examples
 ### SpinalHDL 教程
