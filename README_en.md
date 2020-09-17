@@ -58,7 +58,7 @@ Alternatively, you can download the pre-built toolchain provided by xPack or SiF
 `$sudo apt-get install libusb-1.0-0-dev`  
 
 # How-to-buy
-currently we only has the board on taobao, [iCESugar FPGA Board](https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-21349689053.18.305e20f8cSEvqA&id=614093598737), if you can't buy it from taobao, maybe you can buy it on aliexpress, just search "icesugar fpga" (not official, somebody copy the link and acts as distributor)
+you can buy iCESugar and PMOD boards from our offcial aliexpress shop [Muse Lab Factory Store](https://muselab-tech.aliexpress.com/store/5940159?spm=a2g0o.detail.1000061.1.7cc733429fQjmK)
 
 # Reference
 ### RTL toolchain
