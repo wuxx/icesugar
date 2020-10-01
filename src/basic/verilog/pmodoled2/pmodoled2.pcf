@@ -1,0 +1,21 @@
+set_io TXD          6
+set_io RXD          4
+set_io clk          35
+set_io resetq       18
+
+# LEDs (PMOD 3)
+set_io LED0         27
+set_io LED1         25
+set_io LED2         21
+set_io LED3         23
+set_io LED4         26
+
+# PMOD OLED module connected
+set_io PMOD_CS      46
+set_io PMOD_SDIN    44
+set_io PMOD_SCLK    37
+set_io PMOD_DC      45
+set_io PMOD_RES     43
+set_io PMOD_VBATC   38
+set_io PMOD_VDDC    36
+
