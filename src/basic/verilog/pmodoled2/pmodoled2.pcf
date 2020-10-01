@@ -4,13 +4,13 @@ set_io clk          35
 set_io resetq       18
 
 # LEDs (PMOD 3)
-set_io LED0         27
-set_io LED1         25
-set_io LED2         21
+set_io LED0         32
+set_io LED1         28
+set_io LED2         26
 set_io LED3         23
-set_io LED4         26
+set_io LED4         34
 
-# PMOD OLED module connected
+# PMOD OLED module (PMOD 2)
 set_io PMOD_CS      46
 set_io PMOD_SDIN    44
 set_io PMOD_SCLK    37
