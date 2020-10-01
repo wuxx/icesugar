@@ -24,9 +24,9 @@ class OledDisplay(BaseDisplay):
         if port is None:
             ports = detect_serial()
             if len(ports) == 0:
-                raise IOError('No iCEStick devices detected')
+                raise IOError('No iCESugar devices detected')
             if len(ports) > 1:
-                raise IOError('Multiple possible iCEStick devices detected. Need to specify which one to use')
+                raise IOError('Multiple possible iCESugar devices detected. Need to specify which one to use')
             port = ports[0]
         self.conn = serial.serial_for_url(port, 1000000,
              parity=serial.PARITY_NONE, rtscts=False, xonxoff=False, timeout=1)

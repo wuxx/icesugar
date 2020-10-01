@@ -36,7 +36,7 @@ def tile_image(ingrid):
     return data
 
 def detect_serial():
-    '''Detect serial port for iCEStick.
+    '''Detect serial port for iCESugar.
     Based on 'findserial' in swapforth.
     '''
     import glob, subprocess
