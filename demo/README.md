@@ -1,3 +1,4 @@
+[中文](./README.md) [English](./README_en.md)
 # demo
 此目录下为已经预编译好的FPGA bitstream，可进行拖拽烧录测试  
 源码位于`src/basic`和`src/advanced`中
