@@ -5,7 +5,7 @@ CURRENT_DIR=$(cd $(dirname $0); pwd)
 PLATFORM=$(uname -m)
 
 if [ "${PLATFORM}" == "x86_64" ]; then
-    ${CURRENT_DIR}/icesprog.x64.linux $@
+    sudo ${CURRENT_DIR}/icesprog.x64.linux $@
 else
-    ${CURRENT_DIR}/icesprog.arm $@
+    sudo ${CURRENT_DIR}/icesprog.arm $@
 fi

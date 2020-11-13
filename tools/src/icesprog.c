@@ -518,7 +518,7 @@ void usage(char *program_name)
              -o | --offset                  spi-flash offset                  			 \n\
              -l | --len                     len of write/read                            \n\
              -h | --help                    display help info                            \n\n\
-             -- https://github.com/wuxx/icesugar --\n\
+             -- version 1.0 --\n\
 "), stdout);
     exit(0);
 }

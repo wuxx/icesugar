@@ -42,7 +42,8 @@ LIBUSB = libusb-1.0
 LIBUSB_CFLAGS = $(shell pkg-config --cflags $(LIBUSB))
 LIBUSB_LIBS   = $(shell pkg-config --libs $(LIBUSB))
 
-HIDAPI = hidapi-libusb
+#HIDAPI = hidapi-libusb
+HIDAPI = hidapi-hidraw
 HIDAPI_CFLAGS = $(shell pkg-config --cflags $(HIDAPI))
 HIDAPI_LIBS   = $(shell pkg-config --libs $(HIDAPI))
 
