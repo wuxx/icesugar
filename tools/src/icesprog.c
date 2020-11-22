@@ -142,7 +142,7 @@ int icelink_usb_xfer(int txlen)
     memset(icelink_handle.packet_buffer + txlen, 0, icelink_handle.packet_size - txlen);
 
     /* write data to device */
-    retval = hid_write(icelink_handle.dev_handle, 
+    retval = hid_write(icelink_handle.dev_handle,
             icelink_handle.packet_buffer, icelink_handle.packet_size);
     if (retval == -1) {
         fprintf(stderr, "error writing data: %ls", hid_error(icelink_handle.dev_handle));
@@ -150,7 +150,7 @@ int icelink_usb_xfer(int txlen)
     }
 
     /* get reply */
-    retval = hid_read_timeout(icelink_handle.dev_handle, icelink_handle.packet_buffer, 
+    retval = hid_read_timeout(icelink_handle.dev_handle, icelink_handle.packet_buffer,
             icelink_handle.packet_size, USB_TIMEOUT_DEFAULT);
     if (retval == -1 || retval == 0) {
         fprintf(stderr, "error reading data: %ls", hid_error(icelink_handle.dev_handle));
@@ -307,7 +307,7 @@ int icelink_ram_read_sector(uint8_t *buf)
 int icelink_ram_dump()
 {
 	char flash_sector_ram[SPI_FLASH_SECTOR_SIZE] = {0};
-    uint32_t roffset; 
+    uint32_t roffset;
 
     for(roffset = 0; roffset < SPI_FLASH_SECTOR_SIZE; roffset += 32) {
 	    if (icelink_ram_read(roffset, &flash_sector_ram[roffset], 32) != 0) {
@@ -344,7 +344,7 @@ int icelink_ram_write(uint16_t ram_addr, uint8_t *buf, uint16_t count)
 
 int icelink_ram_write_sector(uint8_t *buf)
 {
-    uint32_t raddr; 
+    uint32_t raddr;
 
     uint32_t i, count, left_size;
 
@@ -532,6 +532,7 @@ static struct option const long_options[] =
   {"offset",  required_argument,  NULL, 'o'},
   {"len",     required_argument,  NULL, 'l'},
   {"help",    no_argument,        NULL, 'h'},
+  {NULL, 0, NULL, 0}, // avoid crashes due to unsupported options
 };
 
 int main(int argc, char **argv)
