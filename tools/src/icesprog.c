@@ -29,6 +29,9 @@
 
 #include <getopt.h>
 
+#ifndef O_BINARY
+#define O_BINARY 0
+#endif
 
 #define readb(addr)         (*( ( volatile uint8_t * )(addr)) )
 #define writeb(addr, data)  (*( ( volatile uint8_t * )(addr)) = data)
@@ -624,7 +627,7 @@ int main(int argc, char **argv)
 
         icelink_flash_read_sectors(flash_offset, sector_num, flash_buf);
 
-        if ((fd = open(ifile, O_CREAT | O_RDWR | O_TRUNC, 0664)) == -1) {
+        if ((fd = open(ifile, O_CREAT | O_RDWR | O_TRUNC | O_BINARY, 0664)) == -1) {
             perror("open");
             exit(-1);
         }
@@ -638,7 +641,7 @@ int main(int argc, char **argv)
 
     } else if (mode == 1) { /* write spi-flash */
         fprintf(stdout, "flash offset: 0x%08x\r\n", flash_offset);
-        if ((fd = open(ifile, O_RDONLY)) == -1) {
+        if ((fd = open(ifile, O_RDONLY | O_BINARY)) == -1) {
             perror("open");
             exit(-1);
         }
