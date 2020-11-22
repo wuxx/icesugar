@@ -39,36 +39,33 @@ endif
 DEFAULT_CFLAGS += -Iinclude/
 
 LIBUSB = libusb-1.0
-LIBUSB_CFLAGS = $(shell pkg-config --cflags $(LIBUSB))
-LIBUSB_LIBS   = $(shell pkg-config --libs $(LIBUSB))
 
 #HIDAPI = hidapi-libusb
 HIDAPI = hidapi-hidraw
-HIDAPI_CFLAGS = $(shell pkg-config --cflags $(HIDAPI))
-HIDAPI_LIBS   = $(shell pkg-config --libs $(HIDAPI))
+ifeq ($(OS),Windows_NT)
+HIDAPI = hidapi
+endif
 
-#pkg-config --libs hidapi-libusb
+CFLAGS = $(shell pkg-config --cflags $(LIBUSB)) $(shell pkg-config --cflags $(HIDAPI))
+LIBS   = $(shell pkg-config --libs $(LIBUSB))   $(shell pkg-config --libs $(HIDAPI))
+.PHONY: all
 
-CFLAGS = $(LIBUSB_CFLAGS) $(HIDAPI_CFLAGS)
-LIBS   = $(LIBUSB_LIBS)   $(HIDAPI_LIBS)
-.PHONY: all 
+all:
+	$(CC) icesprog.c $(CFLAGS) $(LIBS) -o icesprog
 
-all: 
-	$(CC) icesprog.c $(CFLAGS) $(LIBS) -o icesprog 
-
-test1: 
+test1:
 	./icesprog -r -l 104090 out.bin
 
-test2: 
+test2:
 	./icesprog -r -o 0x100000 -l 104090 out.1M.bin
 
-test3: 
+test3:
 	./icesprog pwm.bin
 
-dump: 
+dump:
 	./icesprog -r -l 8388608 chip.bin
 
-deploy: 
+deploy:
 	@if [ "$(PLATFORM)" = "x86_64" ]; \
 	then \
 	    cp icesprog ~/oss/icesugar/tools/icesprog.x64; \
