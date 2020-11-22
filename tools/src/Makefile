@@ -46,8 +46,8 @@ ifeq ($(OS),Windows_NT)
 HIDAPI = hidapi
 endif
 
-CFLAGS = $(shell pkg-config --cflags $(LIBUSB)) $(shell pkg-config --cflags $(HIDAPI))
-LIBS   = $(shell pkg-config --libs $(LIBUSB))   $(shell pkg-config --libs $(HIDAPI))
+CFLAGS += $(shell pkg-config --cflags $(LIBUSB)) $(shell pkg-config --cflags $(HIDAPI))
+LIBS   += $(shell pkg-config --libs $(LIBUSB))   $(shell pkg-config --libs $(HIDAPI))
 .PHONY: all
 
 all:
