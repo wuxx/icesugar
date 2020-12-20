@@ -15,11 +15,11 @@ module TOP
 
 	wire PCLK;
 
-    /* 24Mhz $icepll -o 24Mhz */
+    /* 18Mhz $icepll -o 18Mhz */
     SB_PLL40_PAD #(
             .FEEDBACK_PATH("SIMPLE"),
             .DIVR(4'b0000),         // DIVR =  0
-            .DIVF(7'b0111111),      // DIVF =  63
+            .DIVF(7'b0101111),      // DIVF =  48
             .DIVQ(3'b101),          // DIVQ =  5
             .FILTER_RANGE(3'b001)   // FILTER_RANGE = 1
             ) uut (
