@@ -1,7 +1,7 @@
 filename = hard_led
 pcf_file = ../../../common/io.pcf
 
-ICELINK_DIR=$(shell df | grep iCELink | awk '{print $$9}')
+ICELINK_DIR=$(shell df | grep iCELink | awk '{print $$6}')
 ${warning iCELink path: $(ICELINK_DIR)}
 
 
