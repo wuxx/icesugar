@@ -246,6 +246,10 @@ int icelink_flash_get_info(int verbose)
             if (verbose) { fprintf(stdout, "w25q128 (16MB)\n"); }
             flash_size = 16 * 1024 * 1024;
             break;
+        case (0xEF4019):
+            if (verbose) { fprintf(stdout, "w25q256 (32MB)\n"); }
+            flash_size = 32 * 1024 * 1024;
+            break;
         default:
             if (verbose) { fprintf(stdout, "unknown (??MB)\n"); }
             break;
@@ -668,16 +672,16 @@ int32_t icelink_jtag_select(int jtag_num)
         fprintf(stdout, "JTAG --> [JTAG-%d]\n", jtag_num);
         fputs (("\
                     [JTAG-1]                                                \n\
-                    TCK:  iCELink-PB4  -- ECP5-JTAG-TCK (25F-BG256-T10) \n\
-                    TMS:  iCELink-PA15 -- ECP5-JTAG-TMS (25F-BG256-T11) \n\
-                    TDI:  iCELink-PB3  -- ECP5-JTAG-TDI (25F-BG256-R11) \n\
-                    TDO:  iCELink-PB5  -- ECP5-JTAG-TDO (25F-BG256-M10) \n\
+                    TCK:  iCELink-PB6  -- ECP5-JTAG-TCK (25F-BG256-T10) \n\
+                    TMS:  iCELink-PB4  -- ECP5-JTAG-TMS (25F-BG256-T11) \n\
+                    TDI:  iCELink-PB5  -- ECP5-JTAG-TDI (25F-BG256-R11) \n\
+                    TDO:  iCELink-PB3  -- ECP5-JTAG-TDO (25F-BG256-M10) \n\
                     \n\
                     [JTAG-2]                                                \n\
-                    TCK:  iCELink-PB0  -- ECP5-IO-PL8D  (25F-BG256-F5)  \n\
-                    TMS:  iCELink-PB1  -- ECP5-IO-PL17A (25F-BG256-H5)  \n\
-                    TDI:  iCELink-PB8  -- ECP5-IO-PL38A (25F-BG256-N4)  \n\
-                    TDO:  iCELink-PB9  -- ECP5-IO-PL17D (25F-BG256-J5)  \n\n\
+                    TCK:  iCELink-PA14 -- ECP5-IO-PL8D  (25F-BG256-F5)  \n\
+                    TMS:  iCELink-PA13 -- ECP5-IO-PL17A (25F-BG256-H5)  \n\
+                    TDI:  iCELink-PA0  -- ECP5-IO-PL38A (25F-BG256-N4)  \n\
+                    TDO:  iCELink-PA1  -- ECP5-IO-PL17D (25F-BG256-J5)  \n\n\
                     "), stdout);
 
     } else {
@@ -785,8 +789,8 @@ int32_t icelink_dump_board_info(uint32_t board_type, uint32_t flash_id)
     //fprintf(stdout, "flash id: 0x%x ", flash_id);
     switch (flash_id) {
         case (0xEF4015):
-            fprintf(stdout, "flash: [w25q16] (4MB)\n");
-            flash_size = 4 * 1024 * 1024;
+            fprintf(stdout, "flash: [w25q16] (2MB)\n");
+            flash_size = 2 * 1024 * 1024;
             break;
         case (0xEF4017):
             fprintf(stdout, "flash: [w25q64] (8MB)\n");
@@ -795,6 +799,10 @@ int32_t icelink_dump_board_info(uint32_t board_type, uint32_t flash_id)
         case (0xEF4018):
             fprintf(stdout, "flash: [w25q128] (16MB)\n");
             flash_size = 16 * 1024 * 1024;
+            break;
+        case (0xEF4019):
+            fprintf(stdout, "flash: [w25q256] (32MB)\n");
+            flash_size = 32 * 1024 * 1024;
             break;
         default:
             fprintf(stdout, "flash: unknown flash id 0x%x (??MB)\n", flash_id);
@@ -849,7 +857,7 @@ void usage(char *program_name)
              -j | --jtag-sel                jtag interface select (1 or 2)               \n\
              -c | --clk-sel                 clk source select (1 to 4)                   \n\
              -h | --help                    display help info                            \n\n\
-             -- version 1.1a --\n\
+             -- version 1.1b --\n\
 "), stdout);
     exit(0);
 }
