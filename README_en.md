@@ -11,8 +11,9 @@ iCESugar
 * [Reference](#reference)
 
 # iCESugar
-iCESugar is a FPGA board made by MuseLab, it base on Lattice iCE40UP5k, on board peripheral include RGB LED，Switch，TYPE-C-USB, Micro-USB，most IO out with standard PMOD interface  
+iCESugar is a FPGA board made by MuseLab, which is base on Lattice iCE40UP5k, on board peripherals include RGB LED，Switch，TYPE-C-USB, Micro-USB，most IO out with standard PMOD interface   
 the on board debugger iCELink (base on ARM Mbed DAPLink) support drag-and-drop program, you can just drag the FPGA bitstream into the virtual disk to program, iCELink also support USB CDC serial port and JTAG   
+iCESugar is the first board of iCESugar series FPGA Board, [iCESugar-nano](https://github.com/wuxx/icesugar-nano)(base on Lattice iCE40LP1k) and [iCESugar-pro](https://github.com/wuxx/icesugar-pro)(base on Lattice ECP5) are already released for difference needs.
 ![icesugar_1](https://github.com/wuxx/icesugar/blob/master/doc/iCESugar_1.jpg)
 
 # Hardware

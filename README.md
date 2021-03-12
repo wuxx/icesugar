@@ -19,6 +19,7 @@ iCESugar
 iCESugar 是MuseLab基于Lattice iCE40UP5k设计的开源FPGA开发板，开发板小巧精致，资源丰富，板载RGB LED，Switch，TYPE-C-USB, Micro-USB，大部分IO以标准PMOD接口引出，可与标准PMOD外设进行对接，方便日常的开发使用。  
 板载的调试器iCELink经过精心设计，支持拖拽烧录，用户只需将综合出的FPGA bitstream文件拖拽至虚拟U盘中，即可实现烧录。iCELink亦支持虚拟串口以和FPGA进行通信，同时引出JTAG接口，方便用户对FPGA上实现的SoC进行调试。  
 Lattice的iCE40系列芯片在国外的开源创客社区中拥有大量拥趸，其所有的开发软件环境亦均为开源。一般来说，假若您使用Xilinx或者Altera系列的开发板，您需要安装复杂臃肿的IDE开发环境(而且一般为盗版，使用存在一定法律风险), 在未开始开发前，首先还先需要学会如何操作其复杂的IDE。 iCE40则使用完全开源的工具链进行开发，包括FPGA综合（yosys），布线（arachne-pnr & nextpnr）, 打包烧录（icestorm），编译（gcc），只需在Linux下输入数条命令，即可将整套工具链轻松安装，随后即可开始您的FPGA之旅，而且这一切都是开源的，您可仔细研究整个过程中任何一个细节的实现，非常适合个人研究学习，对于有丰富经验的开发者，亦可用来作为快速的逻辑验证平台。典型的基于iCE40系列的开源开发板有iCEBreaker、UPduino、BlackIce、iCEstick、TinyFPGA 等，社区中拥有丰富的demo可用于验证测试，或者作为自己开发学习的参考。  
+iCESugar是iCESugar系列的第一款开发板，[iCESugar-nano](https://github.com/wuxx/icesugar-nano)(基于Lattice iCE40LP1k) 和 [iCESugar-pro](https://github.com/wuxx/icesugar-pro)(基于Lattice ECP5)已经发布，以匹配不同的功能性能的需求。  
 ![icesugar_1](https://github.com/wuxx/icesugar/blob/master/doc/iCESugar_1.jpg)
 # 芯片规格 
 iCE40UP5K-SG48  
