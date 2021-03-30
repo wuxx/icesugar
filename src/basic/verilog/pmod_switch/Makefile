@@ -1,4 +1,4 @@
-filename = switch
+filename = pmod_switch
 pcf_file = ../../../common/io.pcf
 
 ICELINK_DIR=$(shell df | grep iCELink | awk '{print $$6}')
