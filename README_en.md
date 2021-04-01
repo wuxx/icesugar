@@ -52,7 +52,8 @@ FPGA toolchain reference [icestorm](http://www.clifford.at/icestorm/)
 gcc toolchain reference [riscv-gnu-toolchain](https://pingu98.wordpress.com/2019/04/08/how-to-build-your-own-cpu-from-scratch-inside-an-fpga/)  
 Alternatively, you can download the pre-built toolchain provided by xPack or SiFive
 + https://xpack.github.io/riscv-none-embed-gcc/install/
-+ https://www.sifive.com/software
++ https://www.sifive.com/software    
+
 `icesprog` is command tool for iCESugar program，it depend libusb and hidapi  
 `$sudo apt-get install libhidapi-dev`  
 `$sudo apt-get install libusb-1.0-0-dev`  
