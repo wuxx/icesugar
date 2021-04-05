@@ -58,7 +58,8 @@ FPGA工具链安装请参考[icestorm](http://www.clifford.at/icestorm/)
 gcc工具链安装请参考 [riscv-gnu-toolchain](https://pingu98.wordpress.com/2019/04/08/how-to-build-your-own-cpu-from-scratch-inside-an-fpga/)  
 也可直接下载xPack或者SiFive提供的预编译工具链
 + https://xpack.github.io/riscv-none-embed-gcc/install/
-+ https://www.sifive.com/software
++ https://www.sifive.com/software  
+
 `icesprog`是为iCESugar开发的命令行烧写工具，仓库中已经提供，依赖libusb和hidapi，若自行搭建环境需要安装依赖的库  
 `$sudo apt-get install libhidapi-dev`  
 `$sudo apt-get install libusb-1.0-0-dev`  
