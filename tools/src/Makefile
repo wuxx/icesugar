@@ -69,9 +69,10 @@ dump:
 	./icesprog -r -l 8388608 chip.bin
 
 deploy:
-	@if [ "$(PLATFORM)" = "x86_64" ]; \
-	then \
+	@if [ "$(PLATFORM)" = "x86_64" ]; then \
 	    cp icesprog ~/oss/icesugar/tools/icesprog.x64; \
-    else \
-	    cp icesprog ~/oss/icesugar/tools/icesprog.arm; \
+    elif [ "$(PLATFORM)" = "armv7l"  ]; then \
+	    cp icesprog ~/oss/icesugar/tools/icesprog.arm32; \
+    elif [ "$(PLATFORM)" = "aarch64"  ]; then \
+	    cp icesprog ~/oss/icesugar/tools/icesprog.arm64; \
     fi

@@ -6,6 +6,8 @@ PLATFORM=$(uname -m)
 
 if [ "${PLATFORM}" == "x86_64" ]; then
     sudo ${CURRENT_DIR}/icesprog.x64.linux $@
-else
-    sudo ${CURRENT_DIR}/icesprog.arm $@
+elif [ "${PLATFORM}" == "armv7l" ]; then
+    sudo ${CURRENT_DIR}/icesprog.arm32 $@
+elif [ "${PLATFORM}" == "aarch64" ]; then
+    sudo ${CURRENT_DIR}/icesprog.arm64 $@
 fi
