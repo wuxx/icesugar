@@ -4,7 +4,16 @@
 //in flash master, prog.hex is written in the flash at the 0x100000 offset and contains 00, 01, 02, 03, 04
 //some of these values are read and displayed on the LED
 
-module top(input [3:0] SW, input clk, output LED_R, output LED_G, output LED_B, output SPI_SCK, output SPI_SS, input SPI_MOSI, output SPI_MISO, input [3:0] SW);
+module top(
+    input  clk
+   ,output LED_R
+   ,output LED_G
+   ,output LED_B
+   ,output SPI_SCK
+   ,output SPI_SS
+   ,input  SPI_MOSI
+   ,output SPI_MISO
+);
 
    reg spi_reset;
    wire spi_addr_buffer_free;
@@ -21,10 +30,19 @@ module top(input [3:0] SW, input clk, output LED_R, output LED_G, output LED_B, 
    //from ice40 ultraplus datasheet, the miso/mosi are inverted in the ice40 when in flash-prog mode
    //ice_MOSI is flash_MISO (in)
    //ice_MISO is flash_MOSI (out)
-   spi_master spi_master_inst(.clk(clk), .reset(spi_reset),
-      .SPI_SCK(SPI_SCK), .SPI_SS(SPI_SS), .SPI_MOSI(SPI_MISO), .SPI_MISO(SPI_MOSI),
-      .addr_buffer_free(spi_addr_buffer_free), .addr_en(spi_addr_en), .addr_data(spi_addr_data),
-      .rd_data_available(spi_rd_data_available), .rd_ack(spi_rd_ack), .rd_data(spi_rd_data)
+   spi_master spi_master_inst(
+       .clk(clk)
+      ,.reset(spi_reset)
+      ,.SPI_SCK(SPI_SCK)
+      ,.SPI_SS(SPI_SS)
+      ,.SPI_MOSI(SPI_MISO)
+      ,.SPI_MISO(SPI_MOSI)
+      ,.addr_buffer_free(spi_addr_buffer_free)
+      ,.addr_en(spi_addr_en)
+      ,.addr_data(spi_addr_data)
+      ,.rd_data_available(spi_rd_data_available)
+      ,.rd_ack(spi_rd_ack)
+      ,.rd_data(spi_rd_data)
    );
 
    reg [2:0] led;
@@ -45,12 +63,16 @@ module top(input [3:0] SW, input clk, output LED_R, output LED_G, output LED_B, 
       spi_addr_data = 24'h100000; //1MB offset
       spi_rd_ack = 0;
 
-      led = 0;
-      spi_recv_data_reg = 0;
+      led = 3'b000;
+      // led = 3'b001; // red
+      // led = 3'b010; // green
+      // led = 3'b100; // blue
+      // led = 3'b011; // 红绿色
+      // spi_recv_data_reg = 0;
       handle_data = 0;
 
       state = INIT;
-
+      // state <= DISPLAY_LED;
       counter = 0;
    end
 
@@ -67,11 +89,13 @@ module top(input [3:0] SW, input clk, output LED_R, output LED_G, output LED_B, 
          //wait a bit before starting the SPI
          //if the spi module is started immediately, the behaviour seems strange
          if(counter == 32'h1000000) begin
+            // led <= 3'b001;
             state <= SEND_ADDR_SPI;
          end
       end
       SEND_ADDR_SPI: begin
          // spi_addr_data <= 24'h100000;
+         // led <= 3'b100;
          spi_addr_en <= 1;
          state <= WAIT_READ_DATA;
       end

@@ -1,5 +1,5 @@
 filename = top
-pcf_file = ../../common/io.pcf
+pcf_file = ../../../common/io.pcf
 
 build:
 	yosys -p "synth_ice40 -blif $(filename).blif" $(filename).v
@@ -11,6 +11,15 @@ build:
 
 prog:
 	icesprog $(filename).bin
+
+red:
+	icesprog -o 0x100000 ./flash_master/red.hex
+
+green:
+	icesprog -o 0x100000 ./flash_master/green.hex
+
+blue:
+	icesprog -o 0x100000 ./flash_master/blue.hex
 
 clean:
 	rm -rf $(filename).blif $(filename).asc $(filename).bin
