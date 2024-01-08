@@ -58,6 +58,12 @@ Alternatively, you can download the pre-built toolchain provided by xPack or SiF
 `$sudo apt-get install libhidapi-dev`  
 `$sudo apt-get install libusb-1.0-0-dev`  
 
+- Arch Linux Development Environments：[AUR icesugar-git](https://aur.archlinux.org/pkgbase/icesugar-git)
+
+```bash
+yay -Syu icesugar
+```
+
 # How-to-buy
 you can buy iCESugar and PMOD boards from our offcial aliexpress shop [Muse Lab Factory Store](https://www.aliexpress.com/item/4001201771358.html?pdp_ext_f=%7B%22sku_id%22:%2212000018061074631%22,%22ship_from%22:%22CN%22%7D&gps-id=pcStoreLeaderboard&scm=1007.22922.122102.0&scm_id=1007.22922.122102.0&scm-url=1007.22922.122102.0&pvid=ecf14214-d6c4-43f4-a14f-ba4dc34a480e&spm=a2g0o.store_pc_home.smartLeaderboard_1285899621.4001201771358)
 
