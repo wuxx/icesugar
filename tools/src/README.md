@@ -1,4 +1,11 @@
 # iCELink Tips
+
+## Install 60-icesugar.rules
+```bash
+sudo install -Dm0644 60-icesugar.rules -t /etc/udev/rules.d/
+sudo udevadm control --reload
+```
+
 ## GPIO control
 ```
 $icesprog --gpio PB14 --mode out
