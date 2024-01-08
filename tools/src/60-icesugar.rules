@@ -1,0 +1,23 @@
+# Copy this file to /etc/udev/rules.d/
+# If rules fail to reload automatically, you can refresh udev rules
+# with the command "sudo udevadm control --reload"
+
+ACTION!="add|change", GOTO="icesugar_rules_end"
+
+SUBSYSTEM=="gpio", MODE="0660", TAG+="uaccess"
+
+SUBSYSTEM!="usb|tty|hidraw", GOTO="icesugar_rules_end"
+
+# Please keep this list sorted by VID:PID
+
+# ICELINK
+ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="602b", MODE="660", TAG+="uaccess"
+
+# iCESugar compatible adapters
+ATTRS{product}=="*iCESugar*", MODE="660", TAG+="uaccess"
+
+# iCELink compatible adapters
+ATTRS{product}=="*iCELink*", MODE="660", TAG+="uaccess"
+
+LABEL="icesugar_rules_end"
+
