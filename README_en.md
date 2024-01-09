@@ -61,7 +61,17 @@ Alternatively, you can download the pre-built toolchain provided by xPack or SiF
 - Arch Linux Development Environments：[AUR icesugar-git](https://aur.archlinux.org/pkgbase/icesugar-git)
 
 ```bash
+# icesugar
 yay -Syu icesugar
+
+# icesugar-pro
+yay -Syu icesugar-pro
+
+# icesugar-nano
+yay -Syu icesugar-nano
+
+# icesugar-icesprog
+yay -Syu icesugar-icesprog
 ```
 
 # How-to-buy
