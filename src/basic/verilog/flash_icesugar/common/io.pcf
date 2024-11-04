@@ -1,0 +1,8 @@
+# For the iCESugar Board (iCE40UP5K-QFN48)
+
+set_io --warn-no-port clk              35
+
+set_io --warn-no-port cs               16
+set_io --warn-no-port sck              15
+set_io --warn-no-port mosi             14
+set_io --warn-no-port miso             17
