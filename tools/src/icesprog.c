@@ -235,7 +235,11 @@ int icelink_flash_get_info(int verbose)
     if (verbose) { fprintf(stdout, "flash id: 0x%x ", flash_id); }
     switch (flash_id) {
         case (0xEF4015):
-            if (verbose) { fprintf(stdout, "w25q16 (4MB)\n"); }
+            if (verbose) { fprintf(stdout, "w25q16 (2MB)\n"); }
+            flash_size = 2 * 1024 * 1024;
+            break;
+        case (0xEF4016):
+            if (verbose) { fprintf(stdout, "w25q32 (4MB)\n"); }
             flash_size = 4 * 1024 * 1024;
             break;
         case (0xEF4017):
@@ -791,6 +795,10 @@ int32_t icelink_dump_board_info(uint32_t board_type, uint32_t flash_id)
         case (0xEF4015):
             fprintf(stdout, "flash: [w25q16] (2MB)\n");
             flash_size = 2 * 1024 * 1024;
+            break;
+        case (0xEF4016):
+            fprintf(stdout, "flash: [w25q32] (4MB)\n");
+            flash_size = 4 * 1024 * 1024;
             break;
         case (0xEF4017):
             fprintf(stdout, "flash: [w25q64] (8MB)\n");
