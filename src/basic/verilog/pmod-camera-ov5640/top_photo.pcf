@@ -1,0 +1,32 @@
+# iCESugar + PMOD-CAMERA(OV5640) 拍照模式 工程 引脚约束
+#  与 top.pcf 完全相同 (只是顶层模块名不同), 依据:
+#  src/common/io.pcf + iCESugar-v1.4 原理图 + pmod-camera-v1.0 原理图
+
+# 板载 12MHz (由 iCELink 的 MCO 经 ICE_CLK 送入)
+set_io clk12 35
+
+# UART 输出 (FPGA 侧 TX = IO_13B = U2 第 6 脚, 网络名 UART3_RX)
+set_io TX     6
+
+# 板载 RGB LED
+set_io LED_R 40
+set_io LED_G 41
+set_io LED_B 39
+
+# ---- PMOD2 (相机 J2) ----
+set_io XMCLK 43      # P2_11 -> 相机 XMCLK
+set_io PCLK  44      # P2_2  -> DVP_PCLK  (全局时钟引脚)
+set_io VSYNC 38      # P2_10 -> DVP_VSYNC
+set_io HREF  42      # P2_3  -> DVP_HREF
+set_io SCL   37      # P2_4  -> I2C_SCL
+set_io SDA   36      # P2_9  -> I2C_SDA
+
+# ---- PMOD3 (相机 J3)  D0..D7 = 相机 Y2..Y9 ----
+set_io D[0] 23         # P3_9  -> DVP_Y2
+set_io D[1] 25         # P3_4  -> DVP_Y3
+set_io D[2] 26         # P3_10 -> DVP_Y4
+set_io D[3] 27         # P3_3  -> DVP_Y5
+set_io D[4] 28         # P3_11 -> DVP_Y6
+set_io D[5] 31         # P3_2  -> DVP_Y7
+set_io D[6] 32         # P3_12 -> DVP_Y8
+set_io D[7] 34         # P3_1  -> DVP_Y9
