@@ -27,11 +27,11 @@ make
 
 # Photo firmware: streams a 640x480 YUYV image over the serial port
 make photo
-python host_capture.py --flash --baud 115200 --seconds 200   # needs pyserial/numpy/pillow
+python host_capture.py --sensor ov5640 --flash --baud 115200 --seconds 200   # needs pyserial/numpy/pillow
 ```
 
 `make photo` writes `top_photo.bin`; the host script flashes it, reassembles the
-image and saves `photo.raw` + `photo.png`.
+image and saves `photo-ov5640.raw` + `photo-ov5640.png`.
 
 ---
 
@@ -307,16 +307,16 @@ cd src/basic/verilog/ov5640
 make photo
 
 # 2) Flash + capture (run on the Windows host; needs pyserial + numpy + pillow)
-python host_capture.py --flash --baud 115200 --seconds 200
+python host_capture.py --sensor ov5640 --flash --baud 115200 --seconds 200
 ```
 
 The host script prints progress and finally writes three files:
 
 | File | Content |
 |---|---|
-| `photo.raw` | The reassembled raw YUYV (640x480x2 = 614400 bytes) |
-| `photo.png` | The same image converted to RGB |
-| `photo.stream` | The raw serial byte stream (for debugging) |
+| `photo-ov5640.raw` | The reassembled raw YUYV (640x480x2 = 614400 bytes) |
+| `photo-ov5640.png` | The same image converted to RGB |
+| `photo-ov5640.stream` | The raw serial byte stream (for debugging) |
 
 `--flash` first calls `icesprog.exe` to program the board (**do not use
 drag-and-drop flashing**, the virtual USB stick is unreliable), then finds the
@@ -492,3 +492,38 @@ Offline verification: `make sim_photo` (no hardware needed).
     (The vertical direction needs no change: `0x3820 = 0x41` applies the ISP
     flip that corrects the BSI sensor's natural vertical inversion — in the face
     photo the hair is on top and the face points left, both correct.)
+
+### Pitfall 27: one serial port can only be opened by one process, and a busy port makes the script **crash right at the open step**
+
+The iCELINK CDC port used by `host_capture.py` (VID `1D50` / PID `602B`) is an
+**exclusive** COM port on Windows. **Two tests cannot run at the same time**:
+while the first one is still collecting (default `--seconds 200`; collecting all
+480 rows takes 58~97 s in practice), the second one fails to open the port with
+
+```
+SerialException: could not open port 'COM419': PermissionError(13, 'Access is denied.')
+```
+
+The script dies on the `serial.Serial()` line and **not a single output file is
+written** — all you see is one red traceback, which looks exactly like "the test
+suddenly fails" even though the firmware and the hardware are both fine. It is
+reproducible when two `.bat` files are double-clicked in a row: the first one was
+created at 10:00:26 and only finished at 10:02:14, the second one was launched at
+10:00:55, while the port was still held.
+
+What the script does now:
+
+- `wait_port_free()` / `open_serial()` **wait for the port to become free** before
+  continuing, up to `--port-wait 120` seconds by default;
+- the order is **wait for the port -> flash -> collect**, so two tests launched
+  back to back no longer cut each other off;
+- the script prints a **VERDICT** at the end:
+  - all `480/480` rows present -> `VERDICT = OK`
+  - only the top rows 0/1 missing (known first-frame artefact, the image is still
+    usable) -> `VERDICT = OK`
+  - any other missing rows -> `VERDICT = FAIL` (exit code 2)
+
+Output files are namespaced per sensor: `photo-<sensor>.raw` / `.png` / `.stream`,
+so the OV2640 and OV5640 results never overwrite each other. Pass
+`--sensor ov2640` / `--sensor ov5640` to pick the sensor.
+

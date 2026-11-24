@@ -504,6 +504,35 @@ touch top.v top_photo.v      # 或者 rm -f top_photo.json
 make && make photo
 ```
 
+### 坑 20：同一个串口只能被一个进程占用，端口被占用时脚本会**崩在开端口那一步**
+
+`host_capture.py` 用的 iCELINK CDC (VID `1D50` / PID `602B`) 在 Windows 上是
+一个**独占**的 COM 口。**两个测试不能同时跑**：先跑的那个还在收数据
+(默认 `--seconds 200`，实测收满 480 行要 58~97 秒)，后一个去开端口会直接抛
+
+```
+SerialException: could not open port 'COM419': PermissionError(13, '拒绝访问。')
+```
+
+脚本崩在 `serial.Serial()` 这一行，**一个文件都写不出来**，屏幕上只有一行红字，
+看起来像"测试突然不通过" —— 其实固件和硬件都是好的。连着双击两个 `.bat`
+时必现：第一个的 `.bat` 建于 10:00:26、10:02:14 才结束，第二个 10:00:55 被双击，
+端口正被占着。
+
+现在的做法：
+
+- `wait_port_free()` / `open_serial()` 会**等端口空出来**再继续，默认最多等
+  `--port-wait 120` 秒；
+- 顺序是 **先等端口空闲 → 再烧录 → 再抓图**，所以两个测试连着双击也不会互相打断；
+- 脚本最后会打印 **VERDICT**：
+  - `480/480` 行全齐 → `VERDICT = OK`
+  - 只缺顶部 row 0/1 (首帧没稳的已知现象，图仍可用) → `VERDICT = OK`
+  - 其他缺行 → `VERDICT = FAIL` (退出码 2)
+
+输出文件名按传感器区分：`photo-<sensor>.raw` / `.png` / `.stream`，
+所以 OV2640 和 OV5640 的结果不会互相覆盖。跑哪个传感器就加
+`--sensor ov2640` / `--sensor ov5640`。
+
 ## 8. 附: 诊断读的 14 步顺序
 
 顺序固定（bank 切换必须在对应的读之前）：
@@ -550,9 +579,9 @@ python host_capture.py --flash --baud 115200 --seconds 200
 
 | 文件 | 内容 |
 |---|---|
-| `photo.raw` | 拼好的原始 YUYV (640x480x2 = 614400 字节) |
-| `photo.png` | 转成 RGB 的 PNG |
-| `photo.stream` | 原始串口字节流 (排查用) |
+| `photo-ov2640.raw` | 拼好的原始 YUYV (640x480x2 = 614400 字节) |
+| `photo-ov2640.png` | 转成 RGB 的 PNG |
+| `photo-ov2640.stream` | 原始串口字节流 (排查用) |
 
 `--flash` 会先调 `icesprog.exe` 烧录（**不要用拖拽烧录**，虚拟 U 盘不可靠），
 然后自动找 iCELink 的 CDC 串口 (VID_1D50 / PID_602B) 收数据。

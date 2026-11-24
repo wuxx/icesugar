@@ -580,6 +580,40 @@ touch top.v top_photo.v      # or rm -f top_photo.json
 make && make photo
 ```
 
+### Pitfall 20: one serial port can only be opened by one process, and a busy port makes the script **crash right at the open step**
+
+The iCELINK CDC port used by `host_capture.py` (VID `1D50` / PID `602B`) is an
+**exclusive** COM port on Windows. **Two tests cannot run at the same time**:
+while the first one is still collecting (default `--seconds 200`; collecting all
+480 rows takes 58~97 s in practice), the second one fails to open the port with
+
+```
+SerialException: could not open port 'COM419': PermissionError(13, 'Access is denied.')
+```
+
+The script dies on the `serial.Serial()` line and **not a single output file is
+written** — all you see is one red traceback, which looks exactly like "the test
+suddenly fails" even though the firmware and the hardware are both fine. It is
+reproducible when two `.bat` files are double-clicked in a row: the first one was
+created at 10:00:26 and only finished at 10:02:14, the second one was launched at
+10:00:55, while the port was still held.
+
+What the script does now:
+
+- `wait_port_free()` / `open_serial()` **wait for the port to become free** before
+  continuing, up to `--port-wait 120` seconds by default;
+- the order is **wait for the port -> flash -> collect**, so two tests launched
+  back to back no longer cut each other off;
+- the script prints a **VERDICT** at the end:
+  - all `480/480` rows present -> `VERDICT = OK`
+  - only the top rows 0/1 missing (known first-frame artefact, the image is still
+    usable) -> `VERDICT = OK`
+  - any other missing rows -> `VERDICT = FAIL` (exit code 2)
+
+Output files are namespaced per sensor: `photo-<sensor>.raw` / `.png` / `.stream`,
+so the OV2640 and OV5640 results never overwrite each other. Pass
+`--sensor ov2640` / `--sensor ov5640` to pick the sensor.
+
 ## 8. Appendix: the 14 diagnostic read steps
 
 The order is fixed (a bank switch must come before the matching reads):
@@ -629,9 +663,9 @@ The host prints progress and finally writes three files:
 
 | File | Content |
 |---|---|
-| `photo.raw` | the assembled raw YUYV (640x480x2 = 614400 bytes) |
-| `photo.png` | the RGB PNG |
-| `photo.stream` | the raw serial byte stream (for debugging) |
+| `photo-ov2640.raw` | the assembled raw YUYV (640x480x2 = 614400 bytes) |
+| `photo-ov2640.png` | the RGB PNG |
+| `photo-ov2640.stream` | the raw serial byte stream (for debugging) |
 
 `--flash` calls `icesprog.exe` first (**never drag-and-drop**, the virtual USB
 stick is unreliable) and then finds the iCELink CDC port (VID_1D50 / PID_602B)
