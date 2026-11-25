@@ -1,0 +1,12 @@
+# iCESugar + PMOD-LCD-0.96 (ST7735S 160x80) 引脚约束
+#  依据: src/common/io.pcf (PMOD3 = J3)
+
+# 板载 12MHz (由 iCELink 的 MCO 经 ICE_CLK 送入)
+set_io clk12     35
+
+# ---- PMOD3 (LCD) ----
+set_io lcd_cs_n  34   # PMOD3-1  LCD_SPI_CS   片选, 低有效
+set_io lcd_mosi  31   # PMOD3-2  LCD_SPI_MOSI  数据
+set_io lcd_dc    27   # PMOD3-3  LCD_DC       0=命令 1=数据
+set_io lcd_sck   25   # PMOD3-4  LCD_SPI_SCK  时钟
+set_io lcd_rst_n 23   # PMOD3-9  LCD_RST      复位, 低有效

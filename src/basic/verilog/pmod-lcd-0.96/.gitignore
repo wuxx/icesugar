@@ -1,0 +1,9 @@
+*.asc
+*.blif
+*.json
+*.bin
+*.log
+*.rpt
+*.vvp
+spi_stream.txt
+__pycache__/
